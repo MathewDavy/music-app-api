@@ -17,6 +17,7 @@ namespace music_app_api.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false),
                     ChordGrid = table.Column<string>(type: "jsonb", nullable: true),
                     MelodyGrid = table.Column<string>(type: "jsonb", nullable: true)
                 },

@@ -21,6 +21,7 @@ namespace Api.Controllers
                 Id = grids.Id,
                 ChordGrid = grids.ChordGrid,
                 MelodyGrid = grids.MelodyGrid,
+                Name = grids.Name
 
             }).ToList();
             return Ok(result);

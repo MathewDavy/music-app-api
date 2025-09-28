@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace music_app_api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250927092550_InitCreate")]
+    [Migration("20250928031251_InitCreate")]
     partial class InitCreate
     {
         /// <inheritdoc />
@@ -31,6 +31,10 @@ namespace music_app_api.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
