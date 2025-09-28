@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace music_app_api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250928031251_InitCreate")]
+    [Migration("20250928055355_InitCreate")]
     partial class InitCreate
     {
         /// <inheritdoc />
@@ -24,7 +24,7 @@ namespace music_app_api.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Api.Models.Grids", b =>
+            modelBuilder.Entity("Api.Models.Song", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,14 +38,14 @@ namespace music_app_api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Grids");
+                    b.ToTable("Song");
                 });
 
-            modelBuilder.Entity("Api.Models.Grids", b =>
+            modelBuilder.Entity("Api.Models.Song", b =>
                 {
                     b.OwnsMany("Api.Models.GridColumn", "ChordGrid", b1 =>
                         {
-                            b1.Property<int>("GridsId")
+                            b1.Property<int>("SongId")
                                 .HasColumnType("integer");
 
                             b1.Property<int>("__synthesizedOrdinal")
@@ -60,19 +60,19 @@ namespace music_app_api.Migrations
                                 .IsRequired()
                                 .HasColumnType("text[]");
 
-                            b1.HasKey("GridsId", "__synthesizedOrdinal");
+                            b1.HasKey("SongId", "__synthesizedOrdinal");
 
-                            b1.ToTable("Grids");
+                            b1.ToTable("Song");
 
                             b1.ToJson("ChordGrid");
 
                             b1.WithOwner()
-                                .HasForeignKey("GridsId");
+                                .HasForeignKey("SongId");
                         });
 
                     b.OwnsMany("Api.Models.GridColumn", "MelodyGrid", b1 =>
                         {
-                            b1.Property<int>("GridsId")
+                            b1.Property<int>("SongId")
                                 .HasColumnType("integer");
 
                             b1.Property<int>("__synthesizedOrdinal")
@@ -87,14 +87,14 @@ namespace music_app_api.Migrations
                                 .IsRequired()
                                 .HasColumnType("text[]");
 
-                            b1.HasKey("GridsId", "__synthesizedOrdinal");
+                            b1.HasKey("SongId", "__synthesizedOrdinal");
 
-                            b1.ToTable("Grids");
+                            b1.ToTable("Song");
 
                             b1.ToJson("MelodyGrid");
 
                             b1.WithOwner()
-                                .HasForeignKey("GridsId");
+                                .HasForeignKey("SongId");
                         });
 
                     b.Navigation("ChordGrid");

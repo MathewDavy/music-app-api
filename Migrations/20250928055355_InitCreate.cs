@@ -12,7 +12,7 @@ namespace music_app_api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Grids",
+                name: "Song",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -23,7 +23,7 @@ namespace music_app_api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Grids", x => x.Id);
+                    table.PrimaryKey("PK_Song", x => x.Id);
                 });
         }
 
@@ -31,7 +31,7 @@ namespace music_app_api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Grids");
+                name: "Song");
         }
     }
 }

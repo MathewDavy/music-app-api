@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 namespace Api.Models
 {
 
-    public class Grids
+    public class Song
     {
         [Key]
         public int Id { get; set; }

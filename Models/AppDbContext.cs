@@ -11,11 +11,11 @@ namespace Api.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Grids>().OwnsMany(grids => grids.ChordGrid, builder => builder.ToJson());
-            modelBuilder.Entity<Grids>().OwnsMany(grids => grids.MelodyGrid, builder => builder.ToJson());
+            modelBuilder.Entity<Song>().OwnsMany(song => song.ChordGrid, builder => builder.ToJson());
+            modelBuilder.Entity<Song>().OwnsMany(song => song.MelodyGrid, builder => builder.ToJson());
 
         }
 
-        public DbSet<Grids> Grids { get; set; }
+        public DbSet<Song> Song { get; set; }
     }
 }
