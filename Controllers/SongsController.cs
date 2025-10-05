@@ -21,7 +21,7 @@ namespace Api.Controllers
                 Id = song.Id,
                 ChordGrid = song.ChordGrid,
                 MelodyGrid = song.MelodyGrid,
-                Name = song.Name
+                Name = song.Name,
 
             }).ToList();
             return Ok(result);
@@ -45,8 +45,7 @@ namespace Api.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateSong([FromBody] Song song)
-        {
-
+        {      
             _context.Song.Add(song);
             await _context.SaveChangesAsync();
             return Ok(song);

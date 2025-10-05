@@ -12,10 +12,8 @@ namespace Api.Models
         [Key]
         public int Id { get; set; }
         public required string Name { get; set; } 
-        public List<GridColumn> ChordGrid { get; set; } = [];
-        public List<GridColumn> MelodyGrid { get; set; } = [];
-       
-
+        public required Grid ChordGrid { get; set; }
+        public required Grid MelodyGrid { get; set; }
 
     }
 }
